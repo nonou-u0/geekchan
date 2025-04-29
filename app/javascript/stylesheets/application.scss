@@ -1,0 +1,113 @@
+@use '~bootstrap/scss/bootstrap';
+
+@use '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+.text-pink {
+  color: #ff96d2 !important; 
+  font-weight: bold;
+}
+
+.navbar-toggler-icon {
+  color: #ff96d2;  
+}
+
+.sign_in {
+  background-color: #f5e8dc !important; 
+  color: #4b2e2e !important;            
+  border: none;
+}
+
+.sign_up {
+  background-color: #4b2e2e !important; 
+  color: #f5e8dc !important;           
+  border: none;
+}
+
+body {
+  color: #4b2e2e;
+}
+
+th {
+  color: #4b2e2e;
+}
+
+td{
+  color: #4b2e2e;
+}
+
+.custom-pink-btn {
+  background-color: #ff96d2;
+  color: white;
+  border: none;
+  font-weight: bold;// 文字を可愛く
+  padding: 0.5rem 1rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ff96d2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")!important;
+}
+
+footer{
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  height: 200px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to top, #cfeffd, #ffffff);
+  overflow: hidden;
+}
+
+/* 木：左に固定＆ゆらゆら */
+.tree {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  width: 150px;
+  animation: sway 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* 花：右に配置＆ゆらゆら */
+.flower {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  width: 100px;
+  animation: sway 3s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* 蝶々：上に飛びつつふわふわ移動 */
+.butterfly {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  width: 60px;
+  animation: flutter 6s ease-in-out infinite;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+/* アニメーション定義 */
+@keyframes sway {
+  0% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+}
+
+@keyframes flutter {
+  0%   { transform: translateX(-50%) translateY(0); }
+  25%  { transform: translateX(-40%) translateY(-20px); }
+  50%  { transform: translateX(-55%) translateY(-40px); }
+  75%  { transform: translateX(-45%) translateY(-60px); }
+  100% { transform: translateX(-50%) translateY(-80px); }
+}

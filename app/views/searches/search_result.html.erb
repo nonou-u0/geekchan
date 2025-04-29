@@ -1,0 +1,42 @@
+<h2>🌼"<%= params[:word] %>" の検索結果🌼</h2>
+
+<% if @users.any? %>
+  <h3>ユーザー</h3>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>該当するユーザーがいないよ涙</p>
+<% end %>
+
+<% if @blogs.any? %>
+  <h3>企業ブログ</h3>
+  <table class="table">
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td colspan="2">
+            <%= blog.created_at.strftime("%Y-%m-%d") %>
+            <%= blog.title %>
+            <%= blog.user.name %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
+          <td colspan="4">
+            <p class="blog-body">
+              <%= truncate(blog.body, length: 45, separator: ' ') %>
+              <% if blog.body.length > 45 %>
+                <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
+              <% end %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>該当する企業がないよ涙</p>
+<% end %>

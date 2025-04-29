@@ -1,0 +1,38 @@
+<!-- 企業一覧 -->
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'shared/profile_and_new_blog',user: current_user%>
+      </div>
+
+      <div class="col-md-8 offset-md-1">
+      <h2>口コミ一覧</h2>
+        <table class="table">
+          <tbody>
+            <% @blogs.each do |blog| %>
+              <tr>
+                <td colspan="2">
+                  <%= blog.created_at.strftime("%Y-%m-%d") %>
+                  <%= blog.title %>
+                  <%= blog.user.name %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
+
+                <td colspan="4">
+                  <p class="blog-body">
+                    <%= truncate(blog.body, length: 45, separator: ' ') %>
+                    <% if blog.body.length > 45 %>
+                      <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
+                    <% end %>
+                  </p>
+            <% end %>
+          <%= paginate @blogs %>
+        </table>
+      </div>
+    </div>
+  <div>
+</main>

@@ -1,0 +1,101 @@
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'shared/profile_and_new_blog', user: @user %>
+      </div>
+
+      <div class="col-md-8 offset-md-1">
+        <%= render "shared/serach" %>
+
+        <% if @user == current_user %>
+          <div class="profile mb-4">
+            <h2>あかうんと情報</h2>
+            <table class="table">
+              <tr>
+                <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
+                <td>
+                  <strong>名前：</strong><%= @user.name %><br>
+                  <strong>メールアドレス：</strong><%= @user.email %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <% else %>
+          <div class="profile mb-4">
+            <h2><%= @user.name %> さんの投稿🌼</h2>
+          </div>
+        <% end %>
+
+        <h2>口コミ一覧</h2>
+        <table class="table">
+          <tbody>
+            <% @blogs.each do |blog| %>
+              <tr>
+                <td colspan="2">
+                  <%= blog.created_at.strftime("%Y-%m-%d") %>
+                  <%= blog.title %>
+                  <%= blog.user.name %>
+                </td>
+              </tr>
+              <tr>
+                <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
+                <td colspan="4">
+                  <p class="blog-body">
+                    <%= truncate(blog.body, length: 45, separator: ' ') %>
+                    <% if blog.body.length > 45 %>
+                      <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
+                    <% end %>
+                  </p>
+
+                  <% if current_user == blog.user %>
+                    <div class="mt-2">
+                      <%= link_to '編集', edit_blog_path(blog), class: "btn btn-sm btn-primary me-2" %>
+                      <%= link_to '削除', blog_path(blog), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger" %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @blogs %>
+
+        <!-- お気に入り一覧（自分だけ表示） -->
+        <% if @user == current_user %>
+          <div class="mt-5">
+            <h2>いいね一覧</h2>
+            <% if @favorite_blogs.present? %>
+              <table class="table">
+                <tbody>
+                  <% @favorite_blogs.each do |blog| %>
+                    <tr>
+                      <td colspan="2">
+                        <%= blog.created_at.strftime("%Y-%m-%d") %>
+                        <%= blog.title %>
+                        <%= blog.user.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
+                      <td colspan="4">
+                        <p class="blog-body">
+                          <%= truncate(blog.body, length: 45, separator: ' ') %>
+                          <% if blog.body.length > 45 %>
+                            <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
+                          <% end %>
+                        </p>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% else %>
+              <p>🌻お気に入りの投稿はまだないよ🌻</p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
