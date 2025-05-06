@@ -55,22 +55,15 @@ footer{
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
+  background-color: white;
   height: 200px;
-}
-
-.scene {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(to top, #cfeffd, #ffffff);
-  overflow: hidden;
 }
 
 /* 木：左に固定＆ゆらゆら */
 .tree {
   position: absolute;
   bottom: 0;
-  left: 30px;
+  left: 20px;
   width: 150px;
   animation: sway 4s ease-in-out infinite;
   z-index: 1;
@@ -80,10 +73,29 @@ footer{
 .flower {
   position: absolute;
   bottom: 0;
-  right: 30px;
-  width: 100px;
+  width: 60px;
   animation: sway 3s ease-in-out infinite alternate;
   z-index: 1;
+}
+
+.flower1 {
+  right: 40px;
+}
+
+.flower2 {
+  right: 120px;
+}
+
+.flower3 {
+  right: 200px;
+}
+
+.flower4 {
+  right: 280px;
+}
+
+.flower5 {
+  right: 360px;
 }
 
 /* 蝶々：上に飛びつつふわふわ移動 */
