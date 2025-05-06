@@ -12,6 +12,8 @@
     <% else %>
       <div>以下のリンクからユーザの認証を行ってユーザ登録を完了してください。</div>
       <div><%= link_to 'ユーザ認証を実行する', confirmation_url(@user,confirmation_token: @token) %></div>
+      <div>または以下のURLをコピーしてブラウザに貼り付けてください：</div>
+      <div><%= confirmation_url(@user, confirmation_token: @token) %></div>
       <div> このURLの有効期限は24時間です。</div>
     <% end %>
   <% end %>
