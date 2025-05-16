@@ -44,6 +44,11 @@ group :development do
   gem 'spring','4.2.1'
 end
 
+# group :production do
+#   gem 'concurrent-ruby','1.3.4'
+# end
+
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
@@ -58,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'concurrent-ruby','1.3.4'
