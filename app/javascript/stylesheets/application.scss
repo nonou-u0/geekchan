@@ -1,11 +1,11 @@
 
- *= require_self
- *= require_tree .
+// *= require_self
+// *= require_tree .
 
 
-@use '~bootstrap/scss/bootstrap';
+@use 'bootstrap/scss/bootstrap';
 
-@use '~@fortawesome/fontawesome-free/scss/fontawesome';
+@use '@fortawesome/fontawesome-free/scss/fontawesome';
 
 
 .text-pink {
