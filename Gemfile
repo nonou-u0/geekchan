@@ -69,3 +69,5 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 
 gem 'concurrent-ruby','1.3.4'
+
+gem 'dotenv-rails', groups: [:development, :test, :production]
