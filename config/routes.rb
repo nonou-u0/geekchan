@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show ]
   
+  # 1つのブログに対してユーザーは1つだけお気に入りできる
+  # 各ブログに対して「いいね（お気に入り）」機能
   resources :blogs, only: [:index, :show, :create,:edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
   end  
