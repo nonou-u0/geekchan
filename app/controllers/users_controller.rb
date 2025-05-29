@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def authorize_user
     @user = User.find(params[:id])
     unless current_user == @user
-      flash[:alert] = 'You are not authorized to edit this profile.'
+      flash[:alert] = 'このプロフィールを編集する権限がありません'
       redirect_to user_path(current_user) 
     end
   end
