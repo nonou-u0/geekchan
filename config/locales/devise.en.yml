@@ -5,6 +5,7 @@ ja:
     attributes:
       user:
 
+  
   devise:
     confirmations:
       confirmed: "メールアドレスを確認できました。"

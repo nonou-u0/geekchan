@@ -20,7 +20,7 @@
 
 <%= form_with model: Blog.new, url: blogs_path, local: true do |f| %>
   <div class="form-group">
-    <%= f.label :title ,"企業名" %>
+    <%= f.label :title ,"Title" %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -28,6 +28,6 @@
     <%= f.text_area :body, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit "Create Book", class: "btn custom-pink-btn" %>
+    <%= f.submit "Create Blog", class: "btn custom-pink-btn" %>
   </div>
 <% end %>
