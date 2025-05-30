@@ -14,7 +14,7 @@
       <tr>
         <td><%= image_tag '蝶々.jpg', size: "100x100" %></td>
         <td>
-          <p><%= @blog.body %></p>
+          <%= simple_format(@blog.body) %>
            
           <% if current_user == @blog.user %>
             <div class="mt-2">

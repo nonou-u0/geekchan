@@ -24,7 +24,7 @@
 
                 <td colspan="4">
                   <p class="blog-body">
-                    <%= truncate(blog.body, length: 45, separator: ' ') %>
+                    <%= truncate(blog.body, length: 45) %>
                     <% if blog.body.length > 45 %>
                       <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
                     <% end %>
