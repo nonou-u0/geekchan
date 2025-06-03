@@ -60,19 +60,28 @@ footer{
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
-  background-color: white;
-  height: 200px;
+  background-color: #e6ffcc;
+  height: 300px;
 }
 
 /* 木：左に固定＆ゆらゆら */
 .tree {
   position: absolute;
-  bottom: 0;
-  left: 20px;
-  width: 150px;
-  animation: sway 4s ease-in-out infinite;
+  bottom: -10px;
+  width: 250px;
+  height: 300px;
   z-index: 1;
 }
+
+.tree1{
+  left: 0px;
+}
+
+.tree2{
+  right: 0px;
+}
+
+
 
 /* 花：右に配置＆ゆらゆら */
 .flower {
@@ -80,41 +89,73 @@ footer{
   bottom: 0;
   width: 60px;
   animation: sway 3s ease-in-out infinite alternate;
-  z-index: 1;
+  z-index: 4;
 }
 
+.mocomoco{
+  position: absolute; // ← 必須！relativeでもOK
+  width: 200px;
+  z-index: 2;
+  bottom: 0;
+}
+
+.moco1{
+  left: 280px;
+  z-index: 3;
+}
+
+.moco2{
+  left: 180px;
+}
 .flower1 {
-  right: 40px;
-}
-
-.flower2 {
-  right: 120px;
-}
-
-.flower3 {
   right: 200px;
 }
 
-.flower4 {
+.flower2 {
   right: 280px;
 }
 
-.flower5 {
+.flower3 {
   right: 360px;
+}
+
+.flower4 {
+  right: 440px;
+}
+
+.flower5 {
+  right: 520px;
 }
 
 /* 蝶々：上に飛びつつふわふわ移動 */
 .butterfly {
   position: absolute;
-  left: 50%;
+  left: 30%;
   bottom: 120px;
   width: 60px;
-  animation: flutter 6s ease-in-out infinite;
+  // アニメーション8秒かけて
+  animation: flutter 8s ease-in-out infinite;
   z-index: 2;
   transform: translateX(-50%);
-  
 }
 
+.kirikabu{
+  position: absolute;
+  left: 45%;
+  width: 100px;
+  bottom: 0;
+  z-index: 5;
+}
+
+.usagi{
+  position: absolute;
+  width: 90px;
+  left: 45.5%;
+  bottom: 50px;
+  z-index: 6;
+  animation: hop 3s ease-in-out infinite;
+  display: inline-block;
+}
 /* アニメーション定義 */
 @keyframes sway {
   0% { transform: rotate(-1deg); }
@@ -123,9 +164,43 @@ footer{
 }
 
 @keyframes flutter {
-  0%   { transform: translateX(-50%) translateY(0); }
-  25%  { transform: translateX(-40%) translateY(-20px); }
-  50%  { transform: translateX(-55%) translateY(-40px); }
-  75%  { transform: translateX(-45%) translateY(-60px); }
-  100% { transform: translateX(-50%) translateY(-80px); }
+  // y：高さ　ｘ：横
+  0%   { transform: translateX(-30%) translateY(0); }
+  18%  { transform: translateX(-20%) translateY(-10px); }
+  36%  { transform: translateX(-40%) translateY(-30px); }
+  52%  { transform: translateX(-20%) translateY(-60px); }
+  68%  { transform: translateX(-40%) translateY(-30px); }
+  84%  { transform: translateX(-20%) translateY(-10px); }
+  100% { transform: translateX(-30%) translateY(0); }
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+  10% {
+    transform: translateY(0) scaleX(1) scaleY(1.2); /* 横につぶれて縦にのびる（ぐにょん） */
+  }
+  20% {
+    transform: translateY(0) scaleX(1.2) scaleY(0.8); /* 横にびよーん、縦につぶれる */
+  }
+  30% {
+    transform: translateY(-50px) scaleX(1) scaleY(1); /* ぴょんっ！ */
+  }
+  50% {
+    transform: translateY(0) scaleX(1) scaleY(1); /* 着地 → バウンド感 */
+  }
+  70% {
+    transform: translateY(-10px) scaleX(0.95) scaleY(1.05); /* 小さくバウンド */
+  }
+  100% {
+    transform: translateY(0) scaleX(1) scaleY(1); /* 落ち着く */
+  }
+
+  /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .flower{
+    width: 20px;
+  }
+
 }
