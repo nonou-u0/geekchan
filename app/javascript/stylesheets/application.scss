@@ -40,7 +40,9 @@ th {
 td{
   color: #4b2e2e;
 }
-
+.bigtext{
+  font-size: 3vw;
+}
 .custom-pink-btn {
   background-color: #ff96d2;
   color: white;
@@ -61,15 +63,14 @@ footer{
   background-repeat: no-repeat; 
   background-position: center; 
   background-color: #e6ffcc;
-  height: 300px;
+  height: 40vw;
 }
 
-/* 木：左に固定＆ゆらゆら */
 .tree {
   position: absolute;
-  bottom: -10px;
-  width: 250px;
-  height: 300px;
+  bottom: -2vw;
+  width: 35vw;
+  height: 40vw;
   z-index: 1;
 }
 
@@ -87,44 +88,44 @@ footer{
 .flower {
   position: absolute;
   bottom: 0;
-  width: 60px;
-  animation: sway 3s ease-in-out infinite alternate;
+  width: 5vw;
+  animation: sway 2s ease-in-out infinite alternate;
   z-index: 4;
 }
 
 .mocomoco{
   position: absolute; // ← 必須！relativeでもOK
-  width: 200px;
+  width: 14vw;
   z-index: 2;
   bottom: 0;
 }
 
 .moco1{
-  left: 280px;
+  left: 32vw;
   z-index: 3;
 }
 
 .moco2{
-  left: 180px;
+  left: 22vw;
 }
 .flower1 {
-  right: 200px;
+  right: 5vw;
 }
 
 .flower2 {
-  right: 280px;
+  right: 25vw;
 }
 
 .flower3 {
-  right: 360px;
+  right: 33vw;
 }
 
 .flower4 {
-  right: 440px;
+  left: 46vw;
 }
 
 .flower5 {
-  right: 520px;
+  left: 5vw;
 }
 
 /* 蝶々：上に飛びつつふわふわ移動 */
@@ -132,7 +133,7 @@ footer{
   position: absolute;
   left: 30%;
   bottom: 120px;
-  width: 60px;
+  width: 5vw;
   // アニメーション8秒かけて
   animation: flutter 8s ease-in-out infinite;
   z-index: 2;
@@ -141,17 +142,17 @@ footer{
 
 .kirikabu{
   position: absolute;
-  left: 45%;
-  width: 100px;
+  left: 51vw;
+  width: 10vw;
   bottom: 0;
   z-index: 5;
 }
 
 .usagi{
   position: absolute;
-  width: 90px;
-  left: 45.5%;
-  bottom: 50px;
+  width: 10vw;
+  left: 51vw;
+  bottom: 4.5vw;
   z-index: 6;
   animation: hop 3s ease-in-out infinite;
   display: inline-block;
@@ -196,11 +197,4 @@ footer{
   100% {
     transform: translateY(0) scaleX(1) scaleY(1); /* 落ち着く */
   }
-
-  /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  .flower{
-    width: 20px;
-  }
-
 }
