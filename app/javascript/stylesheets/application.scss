@@ -8,6 +8,12 @@
 @use '@fortawesome/fontawesome-free/scss/fontawesome';
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .text-pink {
   color: #ff96d2 !important; 
   font-weight: bold;
@@ -30,7 +36,16 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   color: #4b2e2e;
+  background-color: #e6ffcc;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* main部分が残りの高さを占める */
+  padding-bottom: 20vw; 
 }
 
 th {
