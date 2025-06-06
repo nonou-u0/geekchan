@@ -3,13 +3,14 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   def create
+    # ログインに成功した時の処理
     super do |resource|
       flash[:notice] = "ようこそ、#{resource.name}🌼" 
     end
   end
 
   def destroy
-    user_name = current_user&.name || "ゲスト"
+    user_name = current_user.name
     super do
       flash[:notice] = "#{user_name}、また来てね🌼" 
     end
