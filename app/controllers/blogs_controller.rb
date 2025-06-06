@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to blogs_path, notice: 'Blog was successfully created.'
+      redirect_to blogs_path, notice: '投稿できました✨'
     else
       @blogs = Blog.page(params[:page]) # 新規投稿のnill解決
       render :index
@@ -32,7 +32,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to @blog, notice: 'Blog was successfully updated.'
+      redirect_to @blog, notice: '編集できました✨'
     else
       render :edit
     end
