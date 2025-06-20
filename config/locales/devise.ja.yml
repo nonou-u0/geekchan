@@ -10,6 +10,12 @@ ja:
       send_paranoid_instructions: メールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。
     sessions:
       signed_in: "ログインしました"
+
+    failure:
+      invalid: "メールアドレスまたはパスワードを正しく入力してください"
+      not_found_in_database: "メールアドレスまたはパスワードを正しく入力してください"
+      inactive: "アカウントが有効化されていません"
+      locked: "アカウントがロックされています"
   
     mailer:
       confirmation_instructions:
@@ -44,14 +50,14 @@ ja:
       updated_not_active: "パスワードが正常に変更されました。"
   
   shared:
-  links:
-    back: 戻る
-    didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか?
-    didn_t_receive_unlock_instructions: アカウントの凍結解除方法のメールを受け取っていませんか?
-    forgot_your_password: パスワードを忘れましたか?
-    sign_in: ログイン
-    sign_up: 新規登録
-  minimum_password_length: "（6~20桁の半角英数字）"
+    links:
+      back: 戻る
+      didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか?
+      didn_t_receive_unlock_instructions: アカウントの凍結解除方法のメールを受け取っていませんか?
+      forgot_your_password: パスワードを忘れましたか?
+      sign_in: ログイン
+      sign_up: 新規登録
+    minimum_password_length: "（6~20桁の半角英数字）"
 
   errors:
     messages:

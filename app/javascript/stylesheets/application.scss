@@ -79,16 +79,16 @@ footer{
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
-  background-color: #e6ffcc;
-  min-height: 10vw;
+  // background-color: #e6ffcc;
+  min-height: 30vw;
   // height: 40vw;
 }
 
 .tree {
   position: absolute;
   bottom: -2vw;
-  width: 35vw;
-  height: 40vw;
+  width: 33%;
+  // height: 40vw;
   z-index: 1;
 }
 
