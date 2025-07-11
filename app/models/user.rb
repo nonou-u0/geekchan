@@ -23,5 +23,5 @@ class User < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false, message: "はすでに使われています" }, presence: true
 
   has_many :favorite_blogs, through: :favorites, source: :blog
-
+  has_many :post_images, dependent: :destroy    
 end

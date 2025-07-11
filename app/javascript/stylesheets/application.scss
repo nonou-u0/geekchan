@@ -175,6 +175,9 @@ footer{
   animation: hop 3s ease-in-out infinite;
   display: inline-block;
 }
+.imagecontainer{
+  text-align: center;
+}
 /* アニメーション定義 */
 @keyframes sway {
   0% { transform: rotate(-1deg); }
