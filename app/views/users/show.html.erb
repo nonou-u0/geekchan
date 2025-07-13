@@ -17,7 +17,16 @@
                 <td>
                   <strong>名前：</strong><%= @user.name %><br>
                   <strong>メールアドレス：</strong><%= @user.email %><br>
-                  <strong>あなたの招待コード: </strong><%= current_user.invitation_code %>
+                  <% if @user == current_user %>
+                    <% if current_user.invitation_code.blank? %>
+                      <%= button_to "招待コードを生成する", generate_code_user_path(current_user),
+                      method: :post,
+                      data: { confirm: "本当に生成しますか？" },
+                      class: "btn custom-pink-btn" %>
+                    <% else %>
+                      <p>あなたの招待コード：<strong><%= current_user.invitation_code %></strong></p>
+                    <% end %>
+                  <% end %>
                 </td>
               </tr>
             </table>

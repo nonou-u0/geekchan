@@ -16,6 +16,15 @@ class UsersController < ApplicationController
       @favorite_blogs = current_user.favorite_blogs || []
     end
   end
+
+  def generate_code
+    if current_user.invitation_code.present?
+      redirect_to user_path(current_user), notice: "すでに招待コードがあるよ🌸"
+    else
+      current_user.generate_invitation_code!
+      redirect_to user_path(current_user), notice: "招待コードを生成したよ🌸"
+    end
+  end
   
   private
   

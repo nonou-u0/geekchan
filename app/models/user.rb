@@ -29,22 +29,22 @@ class User < ApplicationRecord
   has_many :favorite_blogs, through: :favorites, source: :blog
   has_many :post_images, dependent: :destroy  
   
-  before_create :generate_invitation_code
-
-  before_validation :validate_referral_code, on: :create
-
-  private
-  def generate_invitation_code
+  # before_create :generate_invitation_code
+  def generate_invitation_code!
     return if self.invitation_code.present?
 
     loop do
       code = SecureRandom.hex(5)
       unless User.exists?(invitation_code: code)
-        self.invitation_code = code
+        # コードを更新して表示
+        self.update!(invitation_code: code)
         break
       end
     end
   end
+  before_validation :validate_referral_code, on: :create
+
+  private
 
   # （未入力・存在しない場合）
   def validate_referral_code
