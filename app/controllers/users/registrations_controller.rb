@@ -6,7 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.except(:referred_by))  # ← referred_byを除いて
+    @user.referred_by = params[:user][:referred_by] 
+
     if @user.save
       flash[:notice] = "ユーザー認証メールを送信いたしました。認証が完了しましたらログインをお願いいたします。"
       redirect_to new_user_session_path
@@ -18,6 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :referred_by)
     end
   end

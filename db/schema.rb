@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_25_093743) do
+ActiveRecord::Schema.define(version: 2025_07_13_070438) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2025_06_25_093743) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.string "code"
+    t.boolean "used"
+    t.datetime "expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "index_invitations_on_code"
+  end
+
   create_table "post_images", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -88,8 +97,10 @@ ActiveRecord::Schema.define(version: 2025_06_25_093743) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "invitation_code"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invitation_code"], name: "index_users_on_invitation_code", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
