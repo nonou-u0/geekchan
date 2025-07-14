@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :referred_by, "招待コード" %><br />
+    <%= f.label :referred_by, "招待コード(既に登録している人から招待コードを受け取ってください)" %><br />
     <%= f.text_field :referred_by %>
   </div>
   <div class="field">
@@ -13,7 +13,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email,"email(千葉工業大学またはgmailで登録可能です✨)" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
