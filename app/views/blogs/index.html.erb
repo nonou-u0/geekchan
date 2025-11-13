@@ -24,9 +24,7 @@
               <td>
                 <p class="blog-body">
                   <%= truncate(blog.body, length: 45) %>
-                  <% if blog.body.length > 45 %>
                     <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
-                  <% end %>
                 </p>
 
                 <% if blog.post_image&.image&.attached? %>
@@ -39,7 +37,6 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @blogs %>
     </div>
   </div>
 </div>

@@ -24,6 +24,8 @@ class SearchesController < ApplicationController
   @users = User.looks(word)
   @blogs = Blog.looks(word)
 
+  @blogs = Blog.looks(word).order(created_at: :desc).page(params[:page]).per(5)
+
   render 'searches/search_result'
   end
 

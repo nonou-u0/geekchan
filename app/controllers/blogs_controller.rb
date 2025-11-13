@@ -20,10 +20,13 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
+    @user = @blog.user 
   end
 
   def edit
     @blog = Blog.find(params[:id])
+    @user = @blog.user 
+    @blog.build_post_image unless @blog.post_image
   end
 
   def destroy
@@ -45,7 +48,7 @@ class BlogsController < ApplicationController
 
   def blog_params
     # データ投稿
-    params.require(:blog).permit(:title, :body, post_image_attributes: [:image])
+    params.require(:blog).permit(:title, :body, post_image_attributes: [:id, :image, :_destroy])
   end
 
 end

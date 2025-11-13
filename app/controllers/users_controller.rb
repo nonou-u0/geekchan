@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @blogs = @user.blogs.page(params[:page]).reverse_order
 
+    # 新規投稿
+    @blog = Blog.new
+    @blog.build_post_image
+
     if @user == current_user
       # eachのnil➡必要なのは配列
       @favorite_blogs = current_user.favorite_blogs || []

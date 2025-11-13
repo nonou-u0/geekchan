@@ -32,11 +32,19 @@
                 <%= link_to 'and more', blog_path(blog), class: "btn btn-sm btn-link" %>
               <% end %>
             </p>
+
+            <% if blog.post_image&.image&.attached? %>
+              <div class="imagecontainer">
+              <%= image_tag blog.post_image.image, style: "width: 70%;" %>
+              </div>
+            <% end %>
+
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+   <%= paginate @blogs %>
 <% else %>
   <p>該当する企業がないよ涙</p>
 <% end %>

@@ -58,6 +58,12 @@
                     <% end %>
                   </p>
 
+                  <% if blog.post_image&.image&.attached? %>
+                    <div class="imagecontainer">
+                    <%= image_tag blog.post_image.image, style: "width: 70%;" %>
+                    </div>
+                  <% end %>
+
                   <% if current_user == blog.user %>
                     <div class="mt-2">
                       <%= link_to '編集', edit_blog_path(blog), class: "btn btn-sm btn-primary me-2" %>
